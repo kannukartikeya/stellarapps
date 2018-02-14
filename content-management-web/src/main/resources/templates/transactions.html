@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>PaymentTransactions</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(paymentList)}">
+        <h2>Transactions List</h2>
+        <table class="table table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>User Id</th>
+                <th>File Name</th>
+            </tr>
+            <tr th:each="transaction : ${paymentList}">
+                <td th:text="${transaction.id}">Id</td>
+                <td th:text="${transaction.userId}">Device Id</td>
+                <td th:text="${transaction.fileName}">description</td>
+
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>
